@@ -1,0 +1,12 @@
+{
+  "name": "TruPDB",
+  "authors": [
+    "Steve <stevenlyall@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "cs.tru.ca/~slyall4520f15/TruPDB",
+  "private": true
+}

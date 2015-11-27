@@ -1,0 +1,177 @@
+
+html {
+    background-color: #5E6C8C;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+header {
+    position: relative;
+    background-color: #7EC57E;
+    width: 100vw;
+    height: 70px;
+    border: 1px solid black;
+
+}
+
+h3 {
+    text-align: center;
+}
+
+#greeting {
+    display: inline;
+    position: absolute;
+    left: 110px;
+    top: 10px;
+}
+
+#signed-in-user {
+
+}
+
+#menu-button {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    left: 5px;
+    top: 5px;
+}
+
+#image {
+    height: 100px;
+    position: fixed;
+    top: calc(50% - 50px);
+    left: calc(50% - 40px);
+
+}
+
+.form-box {
+    display: none;
+    background-color: #5E6C8C;
+    border: 1px solid black;
+    padding: 5px;
+    width: 40%;
+    margin-right: -50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 15;
+}
+
+.input-center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    text-align: right;
+}
+
+.form-box > .cancel-btn {
+    float: left;
+}
+
+.form-box > .submit-btn {
+   float: right;
+}
+
+.form-box input {
+    border: none;
+    text-align: left;
+    margin: 5px;
+}
+.form-box span {
+    color: red;
+    text-align: left;
+}
+
+#menu-button:hover {
+    background-color: #6AA76A;
+    box-shadow: darkgrey;
+}
+
+.horizontal-center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.date-time {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    display: inline;
+    margin-left: auto;
+    z-index: 1;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: blue;
+}
+
+body {
+    margin: 0;
+}
+
+#main {
+    width: 100vw;
+    height: calc(100vh - 144px);
+}
+
+#main-full-width {
+    width: 100%;
+}
+
+#main-menu-open {
+    height: calc(100vh - 144px);
+    width: calc(100vw - 152px);
+    right: 0px;
+}
+
+#bg-dim {
+    position: fixed;
+    z-index: 10;
+    background-color: black;
+    opacity: 0.3;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+
+nav {
+    top: 70px;
+    height: calc(100vh - 144px);
+    float: left;
+    display: none;
+}
+
+.menu-item {
+    border: 1px solid black;
+    height: calc(25% - 2px);
+    max-height: 60px;
+    width: 150px;
+    text-align: center;
+    background-color: #FF8989;
+}
+
+.menu-item:hover {
+    color: blue;
+    background-color: #D08484;
+}
+
+.menu-item span {
+    padding-top: 50%;
+    padding-bottom: 50%;
+
+}
+
+footer {
+    background-color: #7EC57E;
+    width: 100vw;
+    height: 70px;
+    border: 1px solid black;
+}
