@@ -1,3 +1,5 @@
+var timeSSE;
+
 function startTimeUpdatesFromServer() {
 	var timeUpdateURI = 'updateTime.php';
 	timeSSE = new EventSource(timeUpdateURI);

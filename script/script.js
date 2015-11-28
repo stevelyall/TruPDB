@@ -1,6 +1,6 @@
 var mousePositionX, mousePositionY;
 var img = document.getElementById('image');
-var timeSSE;
+
 
 window.addEventListener('load', function() {
     // set up event handlers
@@ -10,7 +10,6 @@ window.addEventListener('load', function() {
         mousePositionY = event.clientY;
     });
 
-
     (function setCancelButtonEvents() {
         var cancelBtns = document.getElementsByClassName('cancel-btn');
 
@@ -19,8 +18,6 @@ window.addEventListener('load', function() {
         }
     })();
 });
-
-
 
 /* functions for showing and hiding menu */
 
