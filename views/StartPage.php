@@ -1,13 +1,9 @@
-<html>
-<head>
-
-    <link rel="stylesheet" type="text/css" href="../css/styles.css">
-</head>
+<?php include_once('includes/head.php');?>
 
 <body>
     <div id="bg-dim"></div>
     <header>
-        <img id="menu-button" src="../images/menuicon.png" alt="Menu">
+        <img id="menu-button" src="images/menuicon.png" alt="Menu">
         <?php
         // greeting for returning user
         if (isset($_COOKIE['greeting_user'])) {
@@ -31,7 +27,7 @@
     </nav>
 
     <section id="main">
-        <img id="image" src="../images/tru_logo.png" alt="TRU">
+        <img id="image" src="images/tru_logo.png" alt="TRU">
 
         <form class="form-box" id='signin-form'
               method='post' action='../controller.php'>
@@ -117,9 +113,9 @@
         <a target="_blank" href="http://cs.tru.ca"><h5 class="horizontal-center">About Us</h5></a>
     </footer>
 </body>
-<script src="../script/script.js"></script>
-<script src="../script/formValidation.js"></script>
-<script src="../script/imgAnimation.js"></script>
+<script src="script/script.js"></script>
+<script src="script/formValidation.js"></script>
+<script src="script/imgAnimation.js"></script>
 <script>
 
 

@@ -1,8 +1,4 @@
-<html>
-<head>
-
-    <link rel="stylesheet" type="text/css" href="../css/styles.css">
-</head>
+<?php include_once('includes/head.php');?>
 
 <body>
 <div id="bg-dim"></div>
@@ -13,7 +9,7 @@
         echo "<h3 id='greeting'>Signed in as " . $_SESSION['username'] . "</h3>";
     }
     ?>
-    <img id="menu-button" src="../images/menuicon.png" alt="Menu">
+    <img id="menu-button" src="images/menuicon.png" alt="Menu">
     <h1 id="title" class="horizontal-center">Main Page</h1>
     <h3 id="main-date-time" class="date-time"></h3>
 </header>
@@ -42,7 +38,7 @@
     <a target="_blank" href="http://cs.tru.ca"><h5 class="horizontal-center">About Us</h5></a>
 </footer>
 </body>
-<script src="../script/script.js"></script>
+<script src="script/script.js"></script>
 <script>
 
     window.addEventListener('load', function() {
