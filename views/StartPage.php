@@ -114,6 +114,7 @@
     </footer>
 </body>
 <script src="script/script.js"></script>
+<script src="script/start.js"></script>
 <script src="script/formValidation.js"></script>
 <script src="script/imgAnimation.js"></script>
 <script>

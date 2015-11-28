@@ -39,6 +39,7 @@
 </footer>
 </body>
 <script src="script/script.js"></script>
+<script src="script/main.js"></script>
 <script>
 
     window.addEventListener('load', function() {
