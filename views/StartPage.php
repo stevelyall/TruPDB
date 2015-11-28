@@ -108,7 +108,6 @@
     </section>
 
 
-
     <footer>
         <a target="_blank" href="http://cs.tru.ca"><h5 class="horizontal-center">About Us</h5></a>
     </footer>
@@ -118,8 +117,6 @@
 <script src="script/formValidation.js"></script>
 <script src="script/imgAnimation.js"></script>
 <script>
-
-
 
     window.addEventListener('load', function() {
         // set up page state depending which box state posted from

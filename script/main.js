@@ -15,3 +15,8 @@ function stopTimeUpdatesFromServer() {
 	timeSSE.close();
 	//console.log('time updates stopped');
 }
+
+function signOutButtonClick() {
+	stopTimeUpdatesFromServer();
+	document.getElementById('return-to-start-page').submit();
+}

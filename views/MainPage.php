@@ -48,10 +48,6 @@
         })();
         startTimeUpdatesFromServer();
 
-        function signOutButtonClick() {
-            stopTimeUpdatesFromServer();
-            document.getElementById('return-to-start-page').submit();
-        }
     });
 
 
