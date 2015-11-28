@@ -38,21 +38,18 @@
 			<label for="title-post">Title</label>
 			<input id="title-post" type='text' autocomplete="on" name='title'
 			       value="">
-<!--			<span id="post-title-error">--><?php //if (!empty($error_msg_username)) echo $error_msg_username; ?><!--</span>-->
 			<br>
 			<label for="memo-post">Memo</label>
 			<input id="memo-post" type='text' name='memo'
 			       value="">
-<!--			<span id="signin-password-error">--><?php //if (!empty($error_msg_password)) echo $error_msg_password; ?><!--</span>-->
 			<br>
-<!--			<span>--><?php //if (!empty($error_msg_login)) echo $error_msg_login; ?><!--</span>-->
-
 			<label for="isprivate-post">Is Private</label>
 			<input id="isprivate-post" type="checkbox" name="private">
 			<br>
+			<span id="post-memo-error"></span>
 		</div>
 		<input class='cancel-btn' type='button' value='Cancel'>
-		<input class='submit-btn' type='submit' value='Sign In'>
+		<input id='post-memo-btn' class='submit-btn' type='submit' value='Post'>
 
 	</form>
 
@@ -66,6 +63,8 @@
 </body>
 <script src="script/script.js"></script>
 <script src="script/main.js"></script>
+<script src="script/formValidation.js"></script>
+
 <script>
 
     window.addEventListener('load', function() {
@@ -73,7 +72,30 @@
 	        document.getElementById('post-button').addEventListener('click', togglePostBoxDisplayed);
             document.getElementById('sign-out-button').addEventListener('click', signOutButtonClick);
         })();
+
+	    document.getElementById('post-memo-btn').addEventListener('click', postMemoButtonClick);
         startTimeUpdatesFromServer();
+
+	    <?php
+
+        switch ($display_type) {
+
+            case 'Main' :
+                echo "console.log('{$display_type}');";
+                break;
+
+            case 'Post' :
+                echo "console.log('{$display_type}');";
+                echo '
+                    showPostBox();
+                    ';
+                break;
+
+			default :
+				echo "console.log('{$display_type}');";
+        }
+        ?>
+
 
     });
 

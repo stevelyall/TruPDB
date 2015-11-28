@@ -47,4 +47,19 @@ function usernameExists($username) {
         return false;
 }
 
+function createMemo($title, $memo, $isPrivate){
+	global $conn;
+
+	$date = date("Y-m-d H:i:s");
+	$sql = "INSERT INTO memo (private, title, memo, datetime, username) " .
+		"VALUES ({$isPrivate}, '{$title}', '{$memo}', '{$date}', '{$_SESSION['username']}');";
+	$result = mysqli_query($conn, $sql);
+	if ($result) {
+		return true;
+	} else {
+		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+		return false;
+	}
+}
+
 ?>

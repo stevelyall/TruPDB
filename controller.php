@@ -58,7 +58,8 @@ if ($page == 'StartPage')
                 if (validate_user($username, $password)) {
                     $_SESSION['username'] = $username;
                     setcookie('greeting_user', $username); // cookie for greeting when user returns before sign in (ass 7)
-                    include('views/MainPage.php');  // ViewMain
+                    $display_type = "Main";
+	                include('views/MainPage.php');  // ViewMain
                 } else {
                     $display_type = 'SignIn';
                     $error_msg_login = 'invalid login credentials';
@@ -165,6 +166,22 @@ else if ($page == 'MainPage') {
             $display_type = 'Start';
             include('views/StartPage.php'); // ViewStart
             exit();
+
+	    case 'Post' :
+			$display_type = "Post";
+		    // post memo
+		    //TODO confirm successful memo post?
+		    $title = htmlspecialchars($_POST['title']);
+		    $memo = htmlspecialchars($_POST['memo']);
+		    $isPrivate = (empty($_POST['private'])) ? 0 : 1;
+		    createMemo($title, $memo, $isPrivate);
+		    include('views/MainPage.php');
+		    exit();
+
+	    default :
+		    $display_type = 'Main';
+		    include('views/MainPage.php'); // ViewStart
+		    exit();
     }
 }
 

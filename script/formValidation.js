@@ -5,6 +5,19 @@ var validPatterns = {
     passwordSpecialChars : /([@#$%^&+=]{1,})/,
 };
 
+function postMemoButtonClick () {
+	var memoTitle = document.getElementById('title-post').value;
+	var memoMemo = document.getElementById('memo-post').value;
+
+	if (memoMemo == "" || memoTitle == "") {
+		document.getElementById('post-memo-error').innerHTML = "Memo or Title cannot be empty.";
+	}
+	else {
+		stopTimeUpdatesFromServer();
+		document.getElementById('post-form').submit();
+	}
+}
+
 // client side validation of join form
 function joinFormButtonClick() {
     var msgUsername = document.getElementById('join-username-error');

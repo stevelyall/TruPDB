@@ -108,6 +108,7 @@
     </section>
 
 
+
     <footer>
         <a target="_blank" href="http://cs.tru.ca"><h5 class="horizontal-center">About Us</h5></a>
     </footer>
