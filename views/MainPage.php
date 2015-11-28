@@ -29,6 +29,32 @@
 
 <section id="main">
 
+	<form class="form-box" id='post-form'
+	      method='post' action='../controller.php'>
+		<input type='hidden' name='page' value='MainPage'>
+		<input type='hidden' name='command' value='Post'>
+		<div class="input-center">
+			<h3>Post Memo</h3>
+			<label for="title-post">Title</label>
+			<input id="title-post" type='text' autocomplete="on" name='title'
+			       value="">
+<!--			<span id="post-title-error">--><?php //if (!empty($error_msg_username)) echo $error_msg_username; ?><!--</span>-->
+			<br>
+			<label for="memo-post">Memo</label>
+			<input id="memo-post" type='text' name='memo'
+			       value="">
+<!--			<span id="signin-password-error">--><?php //if (!empty($error_msg_password)) echo $error_msg_password; ?><!--</span>-->
+			<br>
+<!--			<span>--><?php //if (!empty($error_msg_login)) echo $error_msg_login; ?><!--</span>-->
+
+			<label for="isprivate-post">Is Private</label>
+			<input id="isprivate-post" type="checkbox" name="private">
+			<br>
+		</div>
+		<input class='cancel-btn' type='button' value='Cancel'>
+		<input class='submit-btn' type='submit' value='Sign In'>
+
+	</form>
 
 </section>
 
@@ -44,6 +70,7 @@
 
     window.addEventListener('load', function() {
         (function setMenuButtonEvents() {
+	        document.getElementById('post-button').addEventListener('click', togglePostBoxDisplayed);
             document.getElementById('sign-out-button').addEventListener('click', signOutButtonClick);
         })();
         startTimeUpdatesFromServer();

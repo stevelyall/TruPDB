@@ -20,3 +20,30 @@ function signOutButtonClick() {
 	stopTimeUpdatesFromServer();
 	document.getElementById('return-to-start-page').submit();
 }
+
+function hideBoxes() {
+	hidePostBox();
+}
+
+function togglePostBoxDisplayed() {
+	if (document.getElementById('post-form').style.display == 'block') {
+		hidePostBox();
+	}
+	else {
+		showPostBox();
+	}
+}
+
+function showPostBox() {
+
+	hideBoxes();
+	document.getElementById('post-form').style.display = 'block';
+	document.getElementById('bg-dim').style.display = 'block';
+	hideMenu();
+}
+
+function hidePostBox() {
+	document.getElementById('post-form').style.display = 'none';
+	document.getElementById('bg-dim').style.display = 'none';
+	hideMenu();
+}
