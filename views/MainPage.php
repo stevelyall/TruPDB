@@ -78,22 +78,22 @@
 
 	    <?php
 
-        switch ($display_type) {
-
-            case 'Main' :
-                echo "console.log('{$display_type}');";
-                break;
-
-            case 'Post' :
-                echo "console.log('{$display_type}');";
-                echo '
-                    showPostBox();
-                    ';
-                break;
-
-			default :
-				echo "console.log('{$display_type}');";
-        }
+//        switch ($display_type) {
+//
+//            case 'Main' :
+//                echo "console.log('{$display_type}');";
+//                break;
+//
+//            case 'Post' :
+//                echo "console.log('{$display_type}');";
+//                echo '
+//                    showPostBox();
+//                    ';
+//                break;
+//
+//			default :
+//				echo "console.log('{$display_type}');";
+//        }
         ?>
 
 
