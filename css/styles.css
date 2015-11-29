@@ -175,3 +175,30 @@ footer {
     height: 70px;
     border: 1px solid black;
 }
+
+#list-search {
+	height: 100%;
+	border: none;
+	display: none;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+iframe {
+	width: 100vw;
+	height: calc(100vh - 144px);
+}
+
+th {
+	text-decoration: underline;
+}
+
+#msg-load {
+	margin-top: 20px;
+	color: #ff8989;
+}
+
+table {
+	margin-bottom: 15px;
+}

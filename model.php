@@ -64,7 +64,7 @@ function createMemo($title, $memo, $isPrivate){
 
 function get10MostRecentMemos() {
 	global $conn;
-	$sql = "SELECT * FROM memo ORDER BY datetime LIMIT 10";
+	$sql = "SELECT * FROM memo ORDER BY datetime DESC LIMIT 10";
 	$result = mysqli_query($conn, $sql);
 	return $result;
 

@@ -28,7 +28,7 @@
 </nav>
 
 <section id="main">
-
+	<iframe id="list-search" src="views/memoList.html"></iframe>
 	<form class="form-box" id='post-form'
 	      method='post' action='../controller.php'>
 		<input type='hidden' name='page' value='MainPage'>
@@ -69,12 +69,21 @@
 
     window.addEventListener('load', function() {
         (function setMenuButtonEvents() {
+	        document.getElementById('sign-out-button').addEventListener('click', signOutButtonClick);
 	        document.getElementById('post-button').addEventListener('click', togglePostBoxDisplayed);
-            document.getElementById('sign-out-button').addEventListener('click', signOutButtonClick);
+	        document.getElementById('list-button').addEventListener('click', function() {
+		        toggleMemosDisplayed('list');
+	        });
+	        document.getElementById('search-button').addEventListener('click', function() {
+		        toggleMemosDisplayed('search');
+	        });
         })();
 
 	    document.getElementById('post-memo-btn').addEventListener('click', postMemoButtonClick);
         startTimeUpdatesFromServer();
+
+	    var frame = document.getElementById('list-search');
+	    setMemoListDocument(frame);
 
 	    <?php
 
