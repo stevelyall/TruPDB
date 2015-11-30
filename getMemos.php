@@ -1,17 +1,32 @@
 <?php
-header("Content-Type:application/json");
+//header("Content-Type:application/json");
+require_once('model.php');
+$memos = array();
 
 //if (isset($_SESSION['username'])) {
-	require_once('model.php');
-	$result = get10MostRecentMemos();
 
-	$memos = array();
 
-	while ($memo = mysqli_fetch_assoc($result)) {
-		array_push($memos, $memo);
+	if (count($_GET) > 0) {
+		//search
+		$result = searchMemosForTerms($_GET);
+
+		while ($memo = mysqli_fetch_assoc($result)) {
+			array_push($memos, $memo);
+		}
+
+
+	}
+	else {
+		// no params, list 10 most recent
+		$result = get10MostRecentMemos();
+
+		while ($memo = mysqli_fetch_assoc($result)) {
+			array_push($memos, $memo);
+		}
 	}
 
-	echo json_encode($memos);
+echo json_encode($memos);
+
 //}
 //else {
 //	echo "Not authorized";

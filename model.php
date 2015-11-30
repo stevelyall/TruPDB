@@ -68,6 +68,26 @@ function get10MostRecentMemos() {
 	$sql = "SELECT * FROM memo WHERE private = 0 OR private = 1 AND username = '{$_SESSION['username']}' ORDER BY datetime DESC LIMIT 10";
 	$result = mysqli_query($conn, $sql);
 	return $result;
+}
+
+function searchMemosForTerms($searches) {
+	global $conn;
+	session_start();
+	$sql = "SELECT * FROM memo WHERE private = 0";
+
+	for ($i = 0; $i < count($searches); $i++) {
+		$sql .= " AND memo LIKE '%{$searches[$i]}%' OR title LIKE '%{$searches[$i]}%'";
+	}
+	$sql .= "OR private = 1 AND username = '{$_SESSION['username']}'";
+
+	for ($i = 0; $i < count($searches); $i++) {
+		$sql .= " AND memo LIKE '%{$searches[$i]}%' OR title LIKE '%{$searches[$i]}%'";
+	}
+
+
+//	/var_dump($sql);
+	$result = mysqli_query($conn, $sql);
+	return $result;
 
 }
 ?>

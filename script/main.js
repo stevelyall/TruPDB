@@ -81,6 +81,69 @@ function setMemoListDocument(frame) {
 	memoListDocument = (frame.contentDocument || frame.contentWindow);
 }
 
+function searchMemos() {
+	console.log('search');
+	var searchInput = memoListDocument.getElementById('search');
+	memoListDocument.getElementById('msg-load').style.display = "none";
+	searchInput.style.display = 'block';
+	var heading = memoListDocument.getElementById('header-row') ;
+	clearMemoList(heading);
+	heading.style.display = "none";
+	memoListDocument.getElementById('memo-list-heading').innerHTML = "Search Memos";
+	memoListDocument.getElementById('search-enter-btn').addEventListener('click', searchEnterButtonClicked);
+}
+
+function searchEnterButtonClicked() {
+	var searches = memoListDocument.getElementById('search-input').value.split(',');
+	// create param list for GET
+	var searchParamNum = 0;
+	var getString = "?";
+	searches.forEach(function (search) {
+		search = search.trim();
+		getString += searchParamNum + "=" + search + "&";
+		searchParamNum++;
+	});
+
+	//remove & at end if necessary
+	if (getString.charAt(getString.length-1) == '&') {
+		getString = getString.substring(0,getString.length-1);
+	}
+
+	var memos;
+	var request = new XMLHttpRequest();
+	request.onreadystatechange = function () {
+		memoListDocument.getElementById('msg-load').style.display = "block";
+		if (request.readyState == 4 && request.status == 200) {
+			memos= JSON.parse(request.responseText);
+			if (memos.length == 0) {
+				if (memo = 'empty') {
+					var row = document.createElement('tr');
+					row.innerHTML = "No results.";
+					memoListDocument.getElementById('msg-load').style.display = "none";
+					memoListDocument.getElementById('memo-list-heading').innerHTML = "Search Results";
+					memoListDocument.getElementById('header-row').style.display = "block" ;
+					memoListDocument.getElementById('search').style.display = "none";
+					memoListDocument.getElementsByTagName('table')[0].appendChild(row);
+					return;
+				}
+			}
+			memos.forEach(function (memo) {
+				addMemoRow(memo);
+			});
+			startTimeUpdatesFromServer();
+			memoListDocument.getElementById('msg-load').style.display = "none";
+			memoListDocument.getElementById('memo-list-heading').innerHTML = "Search Results";
+			memoListDocument.getElementById('header-row').style.display = "block" ;
+			memoListDocument.getElementById('search').style.display = "none";
+		}
+	};
+	request.open("POST", "getMemos.php" + getString, true);
+	stopTimeUpdatesFromServer();
+	request.send();
+
+}
+
+
 function listMemos() {
 	var heading = memoListDocument.getElementById('header-row') ;
 	clearMemoList(heading);
@@ -101,13 +164,6 @@ function listMemos() {
 	request.open("GET", "getMemos.php", true);
 	stopTimeUpdatesFromServer();
 	request.send();
-	console.log('list');
-	console.log()
-}
-
-function searchMemos() {
-	// TODO search for memos and display results
-	console.log('search');
 
 }
 
@@ -115,8 +171,8 @@ function addMemoRow(memo) {
 	console.log(memo);
 
 	var memoTable = memoListDocument.getElementsByTagName('table')[0];
-
 	var row = document.createElement('tr');
+
 	var date = document.createElement('td');
 	date.innerHTML = memo.datetime;
 
