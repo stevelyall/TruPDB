@@ -170,11 +170,11 @@ else if ($page == 'MainPage') {
 	    case 'Post' :
 			$display_type = "Post";
 		    // post memo
-		    //TODO confirm successful memo post?
 		    $title = htmlspecialchars($_POST['title']);
 		    $memo = htmlspecialchars($_POST['memo']);
 		    $isPrivate = (empty($_POST['private'])) ? 0 : 1;
 		    createMemo($title, $memo, $isPrivate);
+			echo "<script>alert('Memo posted successfully.');</script>";
 		    include('views/MainPage.php');
 		    exit();
 
