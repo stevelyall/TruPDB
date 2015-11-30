@@ -206,3 +206,7 @@ table {
 #search {
 	display: none;
 }
+
+#search-enter-btn {
+	border: none;
+}

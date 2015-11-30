@@ -122,7 +122,6 @@ function searchEnterButtonClicked() {
 					p.innerHTML = "No results.";
 					row.appendChild(p);
 
-					//todo no result center
 					row.style.textAlign = 'center';
 					memoListDocument.getElementById('msg-load').style.display = "none";
 					memoListDocument.getElementById('memo-list-heading').innerHTML = "Search Results";
@@ -206,5 +205,3 @@ function clearMemoList(heading) {
 	}
 	memoTable.appendChild(heading);
 }
-
-// TODO fix memo list alignment when menu open

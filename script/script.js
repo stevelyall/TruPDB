@@ -25,6 +25,10 @@ function toggleMenuDisplayed() {
     //console.log('menu clicked');
     if (document.getElementsByTagName('nav')[0].style.display != 'block') {
         showMenu();
+	    var list = document.getElementById('list-search');
+        if (list != undefined) {
+	        list.style.display = 'none';
+        }
     }
     else {
         hideMenu();
@@ -42,6 +46,7 @@ function showMenu() {
     document.getElementById('main').style.position = 'relative';
     document.getElementById('main').style.left = '152px';
 }
+
 
 function hideMenu() {
     document.getElementsByTagName('nav')[0].style.display = 'none';
