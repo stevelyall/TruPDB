@@ -118,10 +118,15 @@ function searchEnterButtonClicked() {
 			if (memos.length == 0) {
 				if (memo = 'empty') {
 					var row = document.createElement('tr');
-					row.innerHTML = "No results.";
+					var p = document.createElement('p');
+					p.innerHTML = "No results.";
+					row.appendChild(p);
+
+					//todo no result center
+					row.style.textAlign = 'center';
 					memoListDocument.getElementById('msg-load').style.display = "none";
 					memoListDocument.getElementById('memo-list-heading').innerHTML = "Search Results";
-					memoListDocument.getElementById('header-row').style.display = "block" ;
+					memoListDocument.getElementById('header-row').style.display = "" ;
 					memoListDocument.getElementById('search').style.display = "none";
 					memoListDocument.getElementsByTagName('table')[0].appendChild(row);
 					return;
@@ -133,7 +138,7 @@ function searchEnterButtonClicked() {
 			startTimeUpdatesFromServer();
 			memoListDocument.getElementById('msg-load').style.display = "none";
 			memoListDocument.getElementById('memo-list-heading').innerHTML = "Search Results";
-			memoListDocument.getElementById('header-row').style.display = "block" ;
+			memoListDocument.getElementById('header-row').style.display = "" ;
 			memoListDocument.getElementById('search').style.display = "none";
 		}
 	};
@@ -147,6 +152,7 @@ function searchEnterButtonClicked() {
 function listMemos() {
 	var heading = memoListDocument.getElementById('header-row') ;
 	clearMemoList(heading);
+
 	memoListDocument.getElementById('memo-list-heading').innerHTML = "10 Most Recent Memos";
 	var memos;
 	var request = new XMLHttpRequest();
